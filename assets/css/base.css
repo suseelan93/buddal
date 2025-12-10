@@ -1,0 +1,31 @@
+
+:root{
+  --bg:#ffffff;
+  --text:#111;
+  --header:#ffffff;
+  --shadow:rgba(0,0,0,0.12);
+}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;transition:.25s}
+header{position:fixed;top:0;left:0;right:0;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--header);box-shadow:0 2px 5px var(--shadow);z-index:1000}
+.logo{font-size:28px;font-weight:700}
+.hamburger,.theme-toggle{background:none;border:0;font-size:22px;cursor:pointer}
+nav{position:fixed;top:70px;left:0;right:0;background:var(--bg);max-height:0;overflow:hidden;transition:.3s}
+nav[data-open="true"]{max-height:300px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+nav ul{list-style:none;margin:0;padding:10px;display:flex;flex-direction:column;gap:8px}
+nav li a{padding:8px;display:block;border-radius:4px}
+nav li a:hover{background:rgba(0,0,0,0.06)}
+.has-children .submenu{display:none;padding-left:15px}
+.has-children[data-open="true"] .submenu{display:flex;flex-direction:column;gap:5px}
+
+@media(min-width:800px){
+  nav{position:static;max-height:none;background:none;box-shadow:none}
+  nav ul{flex-direction:row;gap:20px;padding:0}
+  .hamburger{display:none}
+  .has-children .submenu{position:absolute;background:var(--bg);padding:10px;border:1px solid rgba(0,0,0,0.1);display:none}
+  .has-children:hover .submenu{display:block}
+}
+
+main{padding:100px 20px;text-align:center}
+footer{text-align:center;padding:15px;color:#666;margin-top:40px}
+
+body.dark{--bg:#000;--text:#fff;--header:#000;--shadow:rgba(255,255,255,0.2)}
